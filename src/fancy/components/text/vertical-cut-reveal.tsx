@@ -7,7 +7,7 @@ import {
     useRef,
     useState,
   } from "react"
-  import { DynamicAnimationOptions, motion } from "motion/react"
+  import { DynamicAnimationOptions, motion } from "framer-motion"
   
   import { cn } from "@/lib/utils"
   
@@ -34,6 +34,11 @@ import {
   }
   
   interface WordObject {
+    characters: string[]
+    needsSpace: boolean
+  }
+  
+  interface Element {
     characters: string[]
     needsSpace: boolean
   }
@@ -98,12 +103,13 @@ import {
         (index: number) => {
           const total =
             splitBy === "characters"
-              ? elements.reduce(
-                  (acc, word) =>
-                    acc +
-                    (typeof word === "string"
-                      ? 1
-                      : word.characters.length + (word.needsSpace ? 1 : 0)),
+              ? (elements as Array<Element | string>).reduce<number>(
+                  (acc: number, word: Element | string): number => {
+                    if (typeof word === "string") {
+                      return acc + 1;
+                    }
+                    return acc + word.characters.length;
+                  },
                   0
                 )
               : elements.length
@@ -217,4 +223,3 @@ import {
   
   VerticalCutReveal.displayName = "VerticalCutReveal"
   export default VerticalCutReveal
-  
