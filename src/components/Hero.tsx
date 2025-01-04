@@ -31,8 +31,8 @@ const Hero: React.FC = () => {
 
       {/* Logo Group */}
       <div className="fixed top-4 md:top-8 left-4 md:left-8 z-50">
-      <h1 className="relative z-10 text-center font-semibold bg-clip-text font-overusedGrotesk text-lg md:text-xl text-black dark:text-white">
-            coderhema.
+      <h1 className="relative z-10 text-center font-semibold font-overusedGrotesk text-lg md:text-xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white">
+            coderhema
           </h1>
         <div className="relative w-28 h-8">
 
