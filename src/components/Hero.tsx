@@ -1,19 +1,22 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import BreathingText from '@/fancy/components/text/breathing-text';
 import ScrambleHover from '@/fancy/components/text/scramble-hover';
 import ScrambleIn, { ScrambleInHandle } from "@/fancy/components/text/scramble-in";
 import { CardWithGradient } from '@/components/CardWithGradient';
 import ProjectSection from './ProjectSection';
 import { SpotlightButton } from '@/fancy/components/button/spotlight-button';
-import { IconFileText, IconUserCircle } from '@tabler/icons-react';
-
+import { IconFileText, IconUserCircle, IconMoon, IconSun } from '@tabler/icons-react';
+import { SparklesCore } from "@/fancy/components/particles/sparkles";
+ 
 import { IconButton } from './IconButton';
 import * as Tooltip from '@radix-ui/react-tooltip';
 import { motion } from 'framer-motion';
 import { ScrollProgress } from '@/fancy/components/background/scrollprogress';
+import { useDarkMode } from '@/fancy/components/hooks/useDarkMode';
 
 const Hero: React.FC = () => {
   const descriptionRef = useRef<ScrambleInHandle>(null);
+  const { theme, setTheme } = useDarkMode();
 
   useEffect(() => {
     // Start animation after a delay
@@ -25,8 +28,34 @@ const Hero: React.FC = () => {
   return (
     <>
       <ScrollProgress className="top-0" />
-      <div className="relative min-h-[150vh] bg-white">
-        <div className="sticky top-0 pt-8 md:pt-16 pb-16 md:pb-32 z-10 w-full bg-white">
+
+      {/* Logo Group */}
+      <div className="fixed top-4 md:top-8 left-4 md:left-8 z-50">
+      <h1 className="relative z-10 text-center font-semibold bg-clip-text font-overusedGrotesk text-lg md:text-xl text-black dark:text-white">
+            coderhema.
+          </h1>
+        <div className="relative w-28 h-8">
+
+          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-full blur-sm" />
+          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-full" />
+          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[2px] w-full blur-sm" />
+          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-full" />
+
+          {/* Sparkles */}
+          <SparklesCore
+            background="transparent"
+            minSize={0.2}
+            maxSize={0.5}
+            particleDensity={600}
+            className="w-full h-full"
+            particleColor="#FFFFFF"
+          />
+
+        </div>
+      </div>
+
+      <div className="relative min-h-[150vh] bg-white dark:bg-black">
+        <div className="sticky top-0 pt-8 md:pt-16 pb-16 md:pb-32 z-10 w-full bg-white dark:bg-black">
           <div className="w-[95%] md:w-[90%] max-w-4xl mx-auto aspect-[16/9]">
             <CardWithGradient colors={["#FF4D4D", "#F9CB28", "#FF8F00"]}>
               <div className="flex flex-col items-center justify-center h-full p-8">
@@ -34,7 +63,7 @@ const Hero: React.FC = () => {
                   <h1 className="mb-6">
                     <BreathingText
                       labels={["Hello, I'm Tolu ", "I build Websites", "and Apps"]}
-                      className="font-overusedGrotesk text-[clamp(2rem,8vw,5rem)] text-black 
+                      className="font-overusedGrotesk text-[clamp(2rem,8vw,5rem)] text-black dark:text-white
                                 leading-[1.1] md:leading-[1.2] break-words tracking-tight
                                 [text-wrap:balance] px-2 md:px-0"
                       fromFontVariationSettings="'wght' 100, 'slnt' 0"
@@ -71,16 +100,16 @@ const Hero: React.FC = () => {
             </CardWithGradient>
           </div>
 
-          <div className="w-[95%] md:w-[90%] max-w-4xl mx-auto mt-6 md:mt-12 px-4 md:px-0">
+            <div className="w-[95%] md:w-[90%] max-w-4xl mx-auto mt-6 md:mt-12 px-4 md:px-0">
             <ScrambleIn
               ref={descriptionRef}
               text="I'm a full-stack developer specializing in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products using cutting-edge web technologies."
-              scrambleSpeed={5}
+              scrambleSpeed={3}
               scrambledLetterCount={6}
               autoStart={false}
-              className="text-base md:text-lg font-overusedGrotesk leading-relaxed break-words"
+              className="tracking-wide md:text-lg font-[200] text-black dark:text-white font-overusedGrotesk leading-relaxed break-words"
             />
-          </div>
+            </div>
         </div>
 
         <div className="relative z-20 bg-white">
@@ -88,17 +117,28 @@ const Hero: React.FC = () => {
         </div>
 
         <Tooltip.Provider delayDuration={200}>
-          <div className="fixed top-4 md:top-8 right-4 md:right-8 px-2 rounded-full bg-white flex gap-2 md:gap-4 z-50">
-          <IconButton
-          href="/documents" 
-          icon={<IconFileText size={24} stroke={1.5} />}
-          tooltip="Documents"
-          />
-          <IconButton
-          href="/about"
-          icon={<IconUserCircle size={24} stroke={1.5} />} 
-          tooltip="About"
-          />
+          <div className="fixed top-4 md:top-8 right-4 md:right-8 px-2 rounded-full bg-white dark:bg-black flex gap-2 md:gap-4 z-50 border border-neutral-200 dark:border-neutral-800">
+            <IconButton
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              icon={theme === 'light' ? 
+                <IconMoon size={24} stroke={1.5} className="text-black dark:text-white" /> : 
+                <IconSun size={24} stroke={1.5} className="text-black dark:text-white" />
+              }
+              tooltip={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+              className="text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            />
+            <IconButton
+              href="/documents" 
+              icon={<IconFileText size={24} stroke={1.5} className="text-black dark:text-white" />}
+              tooltip="Documents"
+              className="text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            />
+            <IconButton
+              href="/about"
+              icon={<IconUserCircle size={24} stroke={1.5} className="text-black dark:text-white" />} 
+              tooltip="About"
+              className="text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            />
           </div>
         </Tooltip.Provider>
       </div>
