@@ -1,12 +1,13 @@
 import React, { useMemo, useRef } from "react"
 
 import { cn } from "@/lib/utils"
-import { useDimensions } from "@/hooks/use-debounced-dimensions"
+import { useDimensions } from "../hooks/use-debounced-dimensions"
 
 interface AnimatedGradientProps {
-  colors: string[]
-  speed?: number
-  blur?: "light" | "medium" | "heavy"
+  colors: string[];
+  speed?: number;
+  blur?: 'none' | 'light' | 'medium' | 'heavy';
+  onColorChange?: (color: string) => void;
 }
 
 const randomInt = (min: number, max: number) => {
@@ -27,11 +28,13 @@ const AnimatedGradient: React.FC<AnimatedGradientProps> = ({
   )
 
   const blurClass =
-    blur === "light"
-      ? "blur-2xl"
-      : blur === "medium"
-        ? "blur-3xl"
-        : "blur-[100px]"
+    blur === "none"
+      ? ""
+      : blur === "light"
+        ? "blur-2xl"
+        : blur === "medium"
+          ? "blur-3xl"
+          : "blur-[100px]"
 
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden">
