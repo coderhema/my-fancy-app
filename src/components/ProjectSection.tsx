@@ -36,7 +36,7 @@ const ProjectSection = () => {
     title: year,
     content: (
       <div>
-        <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+        <p className="font-overusedGrotesk text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-light mb-8">
           {description}
         </p>
 
@@ -86,7 +86,7 @@ const ProjectSection = () => {
           {techStack.map((tech, index) => (
             <span
               key={index}
-              className="px-2 py-1 bg-gray-100 dark:bg-gray-800 
+              className="font-overusedGrotesk px-2 py-1 bg-gray-100 dark:bg-gray-800 
                        rounded-full text-xs transition-colors
                        hover:bg-gray-200 dark:hover:bg-gray-700"
             >
@@ -99,7 +99,7 @@ const ProjectSection = () => {
   }));
 
   return (
-    <div className="w-full">
+    <div className="w-full font-overusedGrotesk">
       <Timeline data={projectData} />
     </div>
   );

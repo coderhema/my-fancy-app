@@ -5,7 +5,7 @@ import ScrambleIn, { ScrambleInHandle } from "@/fancy/components/text/scramble-i
 import { CardWithGradient } from '@/components/CardWithGradient';
 import ProjectSection from './ProjectSection';
 import { SpotlightButton } from '@/fancy/components/button/spotlight-button';
-import { IconFileText, IconUserCircle, IconMoon, IconSun } from '@tabler/icons-react';
+import { IconFileText, IconUserCircle, IconMoon, IconSun, IconMail } from '@tabler/icons-react';
 import { SparklesCore } from "@/fancy/components/particles/sparkles";
  
 import { IconButton } from './IconButton';
@@ -36,10 +36,10 @@ const Hero: React.FC = () => {
           </h1>
         <div className="relative w-28 h-8">
 
-          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-full blur-sm" />
-          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-full" />
-          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[2px] w-full blur-sm" />
-          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-full" />
+          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-[#FF4D4D] to-transparent h-[2px] w-full blur-sm" />
+          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-[#FF4D4D] to-transparent h-px w-full" />
+          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-[#F9CB28] to-transparent h-[2px] w-full blur-sm" />
+          <div className="absolute inset-x-0 top-0 bg-gradient-to-r from-transparent via-[#FF8F00] to-transparent h-px w-full" />
 
           {/* Sparkles */}
           <SparklesCore
@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                 >
-                  <SpotlightButton>
+                  <SpotlightButton icon={<IconMail size={16} stroke={1.5} />}>
                     <ScrambleHover
                       text={"Book a call"}
                       scrambleSpeed={10}
@@ -94,7 +94,8 @@ const Hero: React.FC = () => {
                       useOriginalCharsOnly={false}
                       className="font-overusedGrotesk font-light"
                       characters="abcdefghijklmnopqrstuvwxyz"
-                    /> </SpotlightButton>
+                    />
+                  </SpotlightButton>
                 </motion.div>
               </div>
             </CardWithGradient>
