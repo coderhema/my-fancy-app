@@ -4,6 +4,7 @@ import ScrambleHover from '@/fancy/components/text/scramble-hover';
 import ScrambleIn, { ScrambleInHandle } from "@/fancy/components/text/scramble-in";
 import { CardWithGradient } from '@/components/CardWithGradient';
 import ProjectSection from './ProjectSection';
+import Footer from './Footer';
 import { SpotlightButton } from '@/fancy/components/button/spotlight-button';
 import { IconFileText, IconUserCircle, IconMoon, IconSun, IconMail } from '@tabler/icons-react';
 import { SparklesCore } from "@/fancy/components/particles/sparkles";
@@ -143,6 +144,7 @@ const Hero: React.FC = () => {
           </div>
         </Tooltip.Provider>
       </div>
+      <Footer />
     </>
   );
 };

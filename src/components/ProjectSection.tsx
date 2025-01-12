@@ -1,8 +1,9 @@
 import React from "react";
-import { Timeline } from "@/fancy/components/background/timeline";
+import { Timeline } from "src/fancy/components/background/timeline"; // Corrected import statement
 
 interface Project {
   year: string;
+  name: string; // Added name field
   description: string;
   images: string[];
   techStack: string[];
@@ -11,6 +12,7 @@ interface Project {
 const projects: Project[] = [
   {
     year: "2024",
+    name: "Project Aurora", // Added project name
     description: "Built modern web applications with React and TypeScript",
     images: [
       "/projects/project1.webp",
@@ -21,6 +23,7 @@ const projects: Project[] = [
   },
   {
     year: "2023",
+    name: "Project Comet", // Added project name
     description: "Developed full-stack applications and APIs",
     images: [
       "/projects/project4.webp",
@@ -47,9 +50,9 @@ const ProjectSection = () => {
               key={index}
               src={src}
               alt={`Project ${index + 1}`}
-              className="rounded-lg object-cover h-44 lg:h-60 w-full 
-                       border border-neutral-200 dark:border-neutral-800 
-                       transition-colors hover:border-neutral-300 
+              className="rounded-lg object-cover h-44 lg:h-60 w-full
+                       border border-neutral-200 dark:border-neutral-800
+                       transition-colors hover:border-neutral-300
                        dark:hover:border-neutral-700"
             />
           ))}
@@ -63,9 +66,9 @@ const ProjectSection = () => {
                 <img
                   src={src}
                   alt={`Project ${index + 1}`}
-                  className="rounded-lg object-cover h-48 w-full 
-                           border border-neutral-200 dark:border-neutral-800 
-                           transition-colors hover:border-neutral-300 
+                  className="rounded-lg object-cover h-48 w-full
+                           border border-neutral-200 dark:border-neutral-800
+                           transition-colors hover:border-neutral-300
                            dark:hover:border-neutral-700"
                 />
               </div>
@@ -86,9 +89,9 @@ const ProjectSection = () => {
           {techStack.map((tech, index) => (
             <span
               key={index}
-              className="font-overusedGrotesk px-2 py-1 bg-gray-100 dark:bg-gray-800 
+              className="font-overusedGrotesk px-3 py-1 text-black dark:text-white bg-gray-200 dark:bg-gray-800/40
                        rounded-full text-xs transition-colors
-                       hover:bg-gray-200 dark:hover:bg-gray-700"
+                       hover:bg-gray-400 dark:hover:bg-gray-600/50"
             >
               {tech}
             </span>
