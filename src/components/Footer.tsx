@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconBrandGithub, IconBrandLinkedin, IconMail } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandLinkedin, IconBrandX } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
               <IconBrandLinkedin size={24} />
             </motion.a>
             <motion.a
-              href="mailto:hello@coderhema.com"
+              href="https://x.com/coderhema"
               variants={{
                 initial: { y: 0, rotate: 0 },
                 hover: {
@@ -67,18 +67,18 @@ const Footer: React.FC = () => {
               whileHover="hover"
               className="text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors"
             >
-              <IconMail size={24} />
+              <IconBrandX size={24} />
             </motion.a>
           </div>
 
           <div className="text-center md:text-right text-sm text-neutral-600 dark:text-neutral-400">
-            <p>&copy; {new Date().getFullYear()} coderhema. All rights reserved.</p>
             <a 
               href="/privacy" 
               className="hover:text-black dark:hover:text-white transition-colors"
             >
               Privacy Policy
             </a>
+            <p>&copy; {new Date().getFullYear()} coderhema. All rights reserved.</p>
           </div>
         </div>
       </div>
