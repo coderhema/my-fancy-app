@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import * as Tooltip from '@radix-ui/react-tooltip';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import * as Tooltip from "@radix-ui/react-tooltip";
+import { ReactNode } from "react";
 
 interface IconButtonProps {
   href?: string;
@@ -21,28 +21,28 @@ const iconHoverVariants = {
     transition: {
       rotate: {
         duration: 0.5,
-        ease: "easeInOut"
+        ease: "easeInOut",
       },
       y: {
         duration: 0.3,
-        ease: "easeOut"
-      }
-    }
-  }
+        ease: "easeOut",
+      },
+    },
+  },
 };
 
 const tooltipAnimation = {
   initial: { opacity: 0, y: 10 },
   animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: 10 }
+  exit: { opacity: 0, y: 10 },
 };
 
-export const IconButton: React.FC<IconButtonProps> = ({ 
-  href, 
-  icon, 
-  tooltip, 
+export const IconButton: React.FC<IconButtonProps> = ({
+  href,
+  icon,
+  tooltip,
   onClick,
-  className = '' 
+  className = "",
 }) => {
   const ButtonWrapper = href ? motion.a : motion.button;
   const props = href ? { href } : { onClick };
@@ -63,10 +63,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
           </ButtonWrapper>
         </Tooltip.Trigger>
         <Tooltip.Portal>
-          <Tooltip.Content
-            asChild
-            sideOffset={5}
-          >
+          <Tooltip.Content asChild sideOffset={5}>
             <motion.div
               initial="initial"
               animate="animate"

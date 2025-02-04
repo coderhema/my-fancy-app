@@ -1,17 +1,17 @@
-import { motion, Transition, Variants, AnimatePresence } from "framer-motion"
-import { useState, useEffect } from "react"
+import { motion, Transition, Variants, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 interface TextProps {
-  labels: string[] // Array of texts to cycle through
-  fromFontVariationSettings: string
-  toFontVariationSettings: string
-  transition?: Transition
-  staggerDuration?: number
-  staggerFrom?: "first" | "last" | "center" | number
-  repeatDelay?: number
-  textSwitchInterval?: number // Time between text switches in ms
-  className?: string
-  onClick?: () => void
+  labels: string[]; // Array of texts to cycle through
+  fromFontVariationSettings: string;
+  toFontVariationSettings: string;
+  transition?: Transition;
+  staggerDuration?: number;
+  staggerFrom?: "first" | "last" | "center" | number;
+  repeatDelay?: number;
+  textSwitchInterval?: number; // Time between text switches in ms
+  className?: string;
+  onClick?: () => void;
 }
 
 const BreathingText = ({
@@ -30,20 +30,20 @@ const BreathingText = ({
   onClick,
   ...props
 }: TextProps) => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0)
-  const [isVisible, setIsVisible] = useState(true)
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsVisible(false)
+      setIsVisible(false);
       setTimeout(() => {
-        setCurrentTextIndex((prev) => (prev + 1) % labels.length)
-        setIsVisible(true)
-      }, 500) // Wait for fade out before changing text
-    }, textSwitchInterval)
+        setCurrentTextIndex((prev) => (prev + 1) % labels.length);
+        setIsVisible(true);
+      }, 500); // Wait for fade out before changing text
+    }, textSwitchInterval);
 
-    return () => clearInterval(interval)
-  }, [labels.length, textSwitchInterval])
+    return () => clearInterval(interval);
+  }, [labels.length, textSwitchInterval]);
 
   const letterVariants: Variants = {
     initial: { fontVariationSettings: fromFontVariationSettings },
@@ -57,24 +57,24 @@ const BreathingText = ({
         repeatDelay: repeatDelay,
       },
     }),
-  }
+  };
 
   const getCustomIndex = (index: number, total: number) => {
     if (typeof staggerFrom === "number") {
-      return Math.abs(index - staggerFrom)
+      return Math.abs(index - staggerFrom);
     }
     switch (staggerFrom) {
       case "first":
-        return index
+        return index;
       case "last":
-        return total - 1 - index
+        return total - 1 - index;
       case "center":
       default:
-        return Math.abs(index - Math.floor(total / 2))
+        return Math.abs(index - Math.floor(total / 2));
     }
-  }
+  };
 
-  const letters = labels[currentTextIndex].split("")
+  const letters = labels[currentTextIndex].split("");
 
   return (
     <AnimatePresence mode="wait">
@@ -105,7 +105,7 @@ const BreathingText = ({
         </motion.span>
       )}
     </AnimatePresence>
-  )
-}
+  );
+};
 
-export default BreathingText
+export default BreathingText;

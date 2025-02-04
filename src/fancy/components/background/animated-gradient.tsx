@@ -1,31 +1,31 @@
-import React, { useMemo, useRef } from "react"
+import React, { useMemo, useRef } from "react";
 
-import { cn } from "@/lib/utils"
-import { useDimensions } from "../hooks/use-debounced-dimensions"
+import { cn } from "@/lib/utils";
+import { useDimensions } from "../hooks/use-debounced-dimensions";
 
 interface AnimatedGradientProps {
   colors: string[];
   speed?: number;
-  blur?: 'none' | 'light' | 'medium' | 'heavy';
+  blur?: "none" | "light" | "medium" | "heavy";
   onColorChange?: (color: string) => void;
 }
 
 const randomInt = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
 const AnimatedGradient: React.FC<AnimatedGradientProps> = ({
   colors,
   speed = 5,
   blur = "light",
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const dimensions = useDimensions(containerRef)
+  const containerRef = useRef<HTMLDivElement>(null);
+  const dimensions = useDimensions(containerRef);
 
   const circleSize = useMemo(
     () => Math.max(dimensions.width, dimensions.height),
-    [dimensions.width, dimensions.height]
-  )
+    [dimensions.width, dimensions.height],
+  );
 
   const blurClass =
     blur === "none"
@@ -34,7 +34,7 @@ const AnimatedGradient: React.FC<AnimatedGradientProps> = ({
         ? "blur-2xl"
         : blur === "medium"
           ? "blur-3xl"
-          : "blur-[100px]"
+          : "blur-[100px]";
 
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden">
@@ -67,7 +67,7 @@ const AnimatedGradient: React.FC<AnimatedGradientProps> = ({
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AnimatedGradient
+export default AnimatedGradient;

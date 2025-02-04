@@ -1,20 +1,20 @@
-import { useState } from "react"
+import { useState } from "react";
 import {
   DynamicAnimationOptions,
   motion,
   stagger,
   useAnimate,
-} from "framer-motion"
-import { debounce } from "lodash"
+} from "framer-motion";
+import { debounce } from "lodash";
 
 interface TextProps {
-  label: string
-  reverse?: boolean
-  transition?: DynamicAnimationOptions
-  staggerDuration?: number
-  staggerFrom?: "first" | "last" | "center" | number
-  className?: string
-  onClick?: () => void
+  label: string;
+  reverse?: boolean;
+  transition?: DynamicAnimationOptions;
+  staggerDuration?: number;
+  staggerFrom?: "first" | "last" | "center" | number;
+  className?: string;
+  onClick?: () => void;
 }
 
 const LetterSwapPingPong = ({
@@ -30,62 +30,62 @@ const LetterSwapPingPong = ({
   onClick,
   ...props
 }: TextProps) => {
-  const [scope, animate] = useAnimate()
-  const [isHovered, setIsHovered] = useState(false)
+  const [scope, animate] = useAnimate();
+  const [isHovered, setIsHovered] = useState(false);
 
   const mergeTransition = (baseTransition: DynamicAnimationOptions) => ({
     ...baseTransition,
     delay: stagger(staggerDuration, {
       from: staggerFrom,
     }),
-  })
+  });
 
   const hoverStart = debounce(
     () => {
-      if (isHovered) return
-      setIsHovered(true)
+      if (isHovered) return;
+      setIsHovered(true);
 
       animate(
         ".letter",
         { y: reverse ? "100%" : "-100%" },
-        mergeTransition(transition)
-      )
+        mergeTransition(transition),
+      );
 
       animate(
         ".letter-secondary",
         {
           top: "0%",
         },
-        mergeTransition(transition)
-      )
+        mergeTransition(transition),
+      );
     },
     100,
-    { leading: true, trailing: true }
-  )
+    { leading: true, trailing: true },
+  );
 
   const hoverEnd = debounce(
     () => {
-      setIsHovered(false)
+      setIsHovered(false);
 
       animate(
         ".letter",
         {
           y: 0,
         },
-        mergeTransition(transition)
-      )
+        mergeTransition(transition),
+      );
 
       animate(
         ".letter-secondary",
         {
           top: reverse ? "-100%" : "100%",
         },
-        mergeTransition(transition)
-      )
+        mergeTransition(transition),
+      );
     },
     100,
-    { leading: true, trailing: true }
-  )
+    { leading: true, trailing: true },
+  );
 
   return (
     <motion.span
@@ -112,10 +112,10 @@ const LetterSwapPingPong = ({
               {letter}
             </motion.span>
           </span>
-        )
+        );
       })}
     </motion.span>
-  )
-}
+  );
+};
 
-export default LetterSwapPingPong
+export default LetterSwapPingPong;

@@ -1,19 +1,19 @@
-import { useState } from "react"
+import { useState } from "react";
 import {
   DynamicAnimationOptions,
   motion,
   stagger,
   useAnimate,
-} from "framer-motion"
+} from "framer-motion";
 
 interface TextProps {
-  label: string
-  reverse?: boolean
-  transition?: DynamicAnimationOptions
-  staggerDuration?: number
-  staggerFrom?: "first" | "last" | "center" | number
-  className?: string
-  onClick?: () => void
+  label: string;
+  reverse?: boolean;
+  transition?: DynamicAnimationOptions;
+  staggerDuration?: number;
+  staggerFrom?: "first" | "last" | "center" | number;
+  className?: string;
+  onClick?: () => void;
 }
 
 const LetterSwapForward = ({
@@ -29,13 +29,13 @@ const LetterSwapForward = ({
   onClick,
   ...props
 }: TextProps) => {
-  const [scope, animate] = useAnimate()
-  const [blocked, setBlocked] = useState(false)
+  const [scope, animate] = useAnimate();
+  const [blocked, setBlocked] = useState(false);
 
   const hoverStart = () => {
-    if (blocked) return
+    if (blocked) return;
 
-    setBlocked(true)
+    setBlocked(true);
 
     // Function to merge user transition with stagger and delay
     const mergeTransition = (baseTransition: DynamicAnimationOptions) => ({
@@ -43,12 +43,12 @@ const LetterSwapForward = ({
       delay: stagger(staggerDuration, {
         from: staggerFrom,
       }),
-    })
+    });
 
     animate(
       ".letter",
       { y: reverse ? "100%" : "-100%" },
-      mergeTransition(transition)
+      mergeTransition(transition),
     ).then(() => {
       animate(
         ".letter",
@@ -57,18 +57,18 @@ const LetterSwapForward = ({
         },
         {
           duration: 0,
-        }
+        },
       ).then(() => {
-        setBlocked(false)
-      })
-    })
+        setBlocked(false);
+      });
+    });
 
     animate(
       ".letter-secondary",
       {
         top: "0%",
       },
-      mergeTransition(transition)
+      mergeTransition(transition),
     ).then(() => {
       animate(
         ".letter-secondary",
@@ -77,10 +77,10 @@ const LetterSwapForward = ({
         },
         {
           duration: 0,
-        }
-      )
-    })
-  }
+        },
+      );
+    });
+  };
 
   return (
     <span
@@ -106,10 +106,10 @@ const LetterSwapForward = ({
               {letter}
             </motion.span>
           </span>
-        )
+        );
       })}
     </span>
-  )
-}
+  );
+};
 
-export default LetterSwapForward
+export default LetterSwapForward;

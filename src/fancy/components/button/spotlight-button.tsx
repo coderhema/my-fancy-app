@@ -1,13 +1,16 @@
 "use client";
 
-import React from 'react';
+import React from "react";
 
 interface SpotlightButtonProps {
   children: React.ReactNode;
   icon?: React.ReactNode;
 }
 
-export const SpotlightButton: React.FC<SpotlightButtonProps> = ({ children, icon }) => {
+export const SpotlightButton: React.FC<SpotlightButtonProps> = ({
+  children,
+  icon,
+}) => {
   return (
     <div style={{ transform: "none" }}>
       <button className="group relative inline-block cursor-pointer rounded-xl bg-zinc-900 p-px font-semibold leading-6 text-white no-underline shadow-2xl shadow-zinc-900">
@@ -22,4 +25,4 @@ export const SpotlightButton: React.FC<SpotlightButtonProps> = ({ children, icon
       </button>
     </div>
   );
-}
+};

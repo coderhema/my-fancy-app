@@ -1,6 +1,10 @@
-import React from 'react';
-import { IconBrandGithub, IconBrandLinkedin, IconBrandX } from '@tabler/icons-react';
-import { motion } from 'framer-motion';
+import React from "react";
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandX,
+} from "@tabler/icons-react";
+import { motion } from "framer-motion";
 
 const Footer: React.FC = () => {
   return (
@@ -19,9 +23,9 @@ const Footer: React.FC = () => {
                   rotate: [-8, 8, 0],
                   transition: {
                     rotate: { duration: 0.5, ease: "easeInOut" },
-                    y: { duration: 0.3, ease: "easeOut" }
-                  }
-                }
+                    y: { duration: 0.3, ease: "easeOut" },
+                  },
+                },
               }}
               initial="initial"
               whileHover="hover"
@@ -40,9 +44,9 @@ const Footer: React.FC = () => {
                   rotate: [-8, 8, 0],
                   transition: {
                     rotate: { duration: 0.5, ease: "easeInOut" },
-                    y: { duration: 0.3, ease: "easeOut" }
-                  }
-                }
+                    y: { duration: 0.3, ease: "easeOut" },
+                  },
+                },
               }}
               initial="initial"
               whileHover="hover"
@@ -59,9 +63,9 @@ const Footer: React.FC = () => {
                   rotate: [-8, 8, 0],
                   transition: {
                     rotate: { duration: 0.5, ease: "easeInOut" },
-                    y: { duration: 0.3, ease: "easeOut" }
-                  }
-                }
+                    y: { duration: 0.3, ease: "easeOut" },
+                  },
+                },
               }}
               initial="initial"
               whileHover="hover"
@@ -72,13 +76,15 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="text-center md:text-right text-sm text-neutral-600 dark:text-neutral-400">
-            <a 
-              href="/privacy" 
+            <a
+              href="/privacy"
               className="hover:text-black dark:hover:text-white transition-colors"
             >
               Privacy Policy
             </a>
-            <p>&copy; {new Date().getFullYear()} coderhema. All rights reserved.</p>
+            <p>
+              &copy; {new Date().getFullYear()} coderhema. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
