@@ -99,7 +99,8 @@ const Hero: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                 >
-                  <SpotlightButton icon={<IconPhone size={16} stroke={1.5} />}>
+<a href="https://cal.com/coderhema/15min">
+  <SpotlightButton icon={<IconPhone size={16} stroke={1.5} />}>
                     <ScrambleHover
                       text={"Book a call"}
                       scrambleSpeed={10}
@@ -109,7 +110,8 @@ const Hero: React.FC = () => {
                       className="font-overusedGrotesk font-light"
                       characters="abcdefghijklmnopqrstuvwxyz"
                     />
-                  </SpotlightButton>
+  </SpotlightButton>
+</a>
                 </motion.div>
               </div>
             </CardWithGradient>
