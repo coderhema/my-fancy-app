@@ -11,37 +11,60 @@ interface Project {
 
 const projects: Project[] = [
   {
-    year: "2024",
-    name: "Project Aurora", // Added project name
+    year: "2023",
+    name: "PollMaster", // Added project name
+    description: "Developed full-stack applications and APIs",
+    images: [
+      "/images/Polls.png",
+      "/images/Polls2.png",
+    ],
+
+    techStack: ["Node.js", "Express", "MongoDB"],
+  },
+  {
+    year: "2023",
+    name: "G.A.S", // Added project name
     description: "Built modern web applications with React and TypeScript",
     images: [
-      "/projects/project1.webp",
-      "/projects/project2.webp",
-      "/projects/project3.webp",
+      "/images/gas.png",
+      "/images/gas2.png",
     ],
 
     techStack: ["React", "TypeScript", "Tailwind"],
   },
   {
     year: "2023",
-    name: "Project Comet", // Added project name
-    description: "Developed full-stack applications and APIs",
+    name: "QuickVocab", // Added project name
+    description: "Built modern web applications with React and TypeScript",
     images: [
-      "/projects/project4.webp",
-      "/projects/project5.webp",
-      "/projects/project6.webp",
+      "/images/quick.png",
+      "/images/quick2.png",
     ],
 
-    techStack: ["Node.js", "Express", "MongoDB"],
+    techStack: ["React", "TypeScript", "Tailwind"],
+  },
+  {
+    year: "2024",
+    name: "EVII", // Added project name
+    description: "Built modern web applications with React and TypeScript",
+    images: [
+      "/images/EVII.png",
+      "/images/evii1.png",
+    ],
+
+    techStack: ["React", "TypeScript", "Tailwind"],
   },
 ];
 
 const ProjectSection = () => {
   const projectData = projects.map(
-    ({ year, description, images, techStack }) => ({
+    ({ year, name, description, images, techStack }) => ({
       title: year,
       content: (
         <div>
+          <h1 className="font-overusedGrotesk text-neutral-800 dark:text-neutral-200 text-lg md:text-md font-bold mb-2">
+            {name}
+          </h1>
           <p className="font-overusedGrotesk text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-light mb-8">
             {description}
           </p>

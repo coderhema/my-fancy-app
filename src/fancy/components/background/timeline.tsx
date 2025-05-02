@@ -39,10 +39,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div className="max-w-7xl font-overusedGrotesk mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2 className="text-2xl md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-          Changelog from my journey
+          My Projects
         </h2>
         <p className="text-neutral-700 font-light tracking-wide dark:text-neutral-300 text-md md:text-base max-w-sm">
-          I've been building things for a while now. Here's a brief history of
+          Here are some projects I have been building.
         </p>
       </div>
 

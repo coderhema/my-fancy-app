@@ -156,21 +156,22 @@ const Hero: React.FC = () => {
               className="text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800"
             />
 
-            <IconButton
-              href="/documents"
-              icon={
-                <IconFileText
-                  size={24}
-                  stroke={1.5}
-                  className="text-black dark:text-white"
-                />
-              }
-              tooltip="Documents"
-              className="text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800"
-            />
+            <a href="/documents/Tolulope-Olugbemi-Resume.pdf" download>
+              <IconButton
+                icon={
+                  <IconFileText
+                    size={24}
+                    stroke={1.5}
+                    className="text-black dark:text-white"
+                  />
+                }
+                tooltip="Documents"
+                className="text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800"
+              />
+            </a>
 
+            <a href="/about">
             <IconButton
-              href="/about"
               icon={
                 <IconUserCircle
                   size={24}
@@ -181,6 +182,7 @@ const Hero: React.FC = () => {
               tooltip="About"
               className="text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800"
             />
+            </a>
           </div>
         </Tooltip.Provider>
       </div>
